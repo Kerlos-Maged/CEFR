@@ -1,0 +1,50 @@
+# Supabase project configuration.
+#
+# This file configures the local Supabase development stack used by the
+# Supabase CLI (`supabase start`, `supabase db reset`, `supabase test db`).
+# It does not create or reference any hosted/paid project.
+#
+# Requirements for the local stack: Docker Desktop (or another Docker engine).
+# When Docker is unavailable, the Vitest integration suite runs the same
+# migrations against an in-process PostgreSQL (PGlite) instead. See
+# docs/development-setup.md.
+
+project_id = "coptic-heritage"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[studio]
+enabled = true
+port = 54323
+api_url = "http://127.0.0.1"
+
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "25MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false

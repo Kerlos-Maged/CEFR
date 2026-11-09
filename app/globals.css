@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/*
+ * Slate, sea-glass, and coral theme.
+ *
+ * A cool slate and sea-glass palette with warm coral accents. Colours are declared as Tailwind v4 theme tokens so they are available
+ * as ordinary utilities (`bg-parchment`, `text-ink`, `bg-crimson`, `border-sand`, ...)
+ * across both the public site and the admin CMS.
+ */
+@theme {
+  /* Surfaces */
+  --color-parchment: #f1f6f7;
+  --color-parchment-deep: #e2edf1;
+  --color-card: #ffffff;
+
+  /* Slate ink */
+  --color-ink: #132a3a;
+  --color-ink-soft: #334d5c;
+  --color-ink-muted: #607987;
+
+  /* Sea-glass teal (primary) */
+  --color-crimson: #176b73;
+  --color-crimson-dark: #0f5159;
+  --color-crimson-soft: #348990;
+
+  /* Coral (accent) */
+  --color-gold: #d76d56;
+  --color-gold-bright: #e58a72;
+  --color-gold-soft: #f2b8a8;
+  --color-gold-tint: #fbe7e0;
+
+  /* Borders */
+  --color-sand: #cedde2;
+  --color-sand-deep: #acc3cb;
+}
+
+:root {
+  color-scheme: light;
+  --shadow-soft: 0 18px 60px rgb(19 42 58 / 10%);
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgb(255 255 255 / 76%), transparent 42rem),
+    linear-gradient(180deg, #ffffff, var(--color-parchment) 42rem);
+}
+
+::selection {
+  color: #ffffff;
+  background: #0f5159;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-crimson);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* A quiet two-tone rule used to separate page introductions. */
+.archive-rule {
+  height: 3px;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold) 20%,
+    var(--color-crimson) 50%,
+    var(--color-gold) 80%,
+    transparent
+  );
+}
+
+.heritage-border {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-crimson) 0 68%, var(--color-gold) 68% 100%);
+}
+
+.brand-wordmark {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.08em;
+}
+
+.site-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.site-grain::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+}
+
+.loading-rule {
+  width: 9rem;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-sand);
+}
+
+.loading-rule::after {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-crimson);
+  content: "";
+  animation: loading-sweep 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes loading-sweep {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(140%);
+  }
+}
+
+.church-qr-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid var(--color-sand);
+  border-radius: 1.25rem;
+  background: linear-gradient(115deg, #ffffff, #e2edf1);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.church-qr-copy {
+  max-width: 42rem;
+}
+.church-qr-copy h2 {
+  margin-top: 0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+}
+.church-qr-copy p:not(.eyebrow) {
+  margin-top: 0.5rem;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.church-qr-copy .eyebrow {
+  color: var(--color-crimson);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+.church-qr-url {
+  display: block;
+  overflow-wrap: anywhere;
+  margin-top: 0.75rem;
+  color: var(--color-ink-muted);
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+}
+.church-qr-download {
+  display: inline-flex;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: var(--color-crimson);
+  padding: 0.7rem 1rem;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.church-qr-image {
+  flex: 0 0 auto;
+  border: 1px solid var(--color-sand);
+  border-radius: 0.8rem;
+  background: white;
+  padding: 0.5rem;
+}
+@media (max-width: 640px) {
+  .church-qr-card {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
+
+.heritage-photo {
+  object-fit: cover;
+  object-position: center;
+}

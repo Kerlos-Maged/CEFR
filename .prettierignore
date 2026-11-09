@@ -1,0 +1,26 @@
+# Dependencies and build output
+node_modules
+.next
+out
+build
+coverage
+
+# Static demo assets
+public/demo
+
+# Playwright output
+playwright-report
+test-results
+
+# Generated / lockfiles
+package-lock.json
+next-env.d.ts
+
+# Phase 1 architecture documents are hand-authored and preserved as-is.
+docs/architecture
+
+# SQL migrations/seeds are formatted as hand-authored SQL (no prettier SQL parser).
+supabase
+
+# Git internals
+.git

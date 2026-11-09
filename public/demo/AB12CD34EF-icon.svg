@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600" role="img" aria-label="Fictional demo icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f5f4"/>
+      <stop offset="1" stop-color="#e7e5e4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+  <rect x="120" y="120" width="960" height="1360" fill="none" stroke="#a8a29e" stroke-width="8"/>
+  <circle cx="600" cy="620" r="260" fill="#d6d3d1" stroke="#78716c" stroke-width="6"/>
+  <ellipse cx="600" cy="1180" rx="300" ry="220" fill="#c7c2be" stroke="#78716c" stroke-width="6"/>
+  <text x="600" y="1500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="56" fill="#57534e">Demo image — not real</text>
+</svg>
